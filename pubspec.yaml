@@ -1,7 +1,7 @@
 name: flutter_tabs
 description: custom tab bar.
 version: 0.0.1
-homepage: https://github.com/lazyee/flutter_custom_tab_bar
+homepage: https://github.com/lazyee/flutter_tabs
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
