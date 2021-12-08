@@ -84,18 +84,8 @@ class LinearIndicator extends CustomIndicator {
             width -
             (sizeList![index].width - width) * rate!;
       }
-
       notifier.value = IndicatorPosition(_animation.value, targetRight);
     });
-    _animationController!.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        // isJumpPage = false;
-      }
-    });
-
     _animationController!.forward();
   }
-
-  // @override
-  // void updateSelectedIndex(TabBarItemRowState state) {}
 }
