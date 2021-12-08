@@ -7,7 +7,7 @@ import 'package:flutter_tabs/library.dart';
 import '../indicator/custom_indicator.dart';
 import 'models.dart';
 
-final Duration animDuration = Duration(milliseconds: 3000);
+final Duration animDuration = Duration(milliseconds: 300);
 
 typedef IndexedTabBarItemBuilder = Widget Function(
     BuildContext context, int index);
