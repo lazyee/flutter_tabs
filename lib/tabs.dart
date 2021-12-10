@@ -1,26 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tabs/library.dart';
-import 'package:flutter_tabs/tab_bar.dart';
-
-import '../indicator/custom_indicator.dart';
-
-class TabsContext extends InheritedWidget {
-  final ValueNotifier<ScrollProgressInfo> progressNotifier =
-      ValueNotifier(ScrollProgressInfo());
-
-  TabsContext({required Widget child, Key? key})
-      : super(child: child, key: key);
-
-  @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    return true;
-  }
-
-  static TabsContext? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<TabsContext>(
-        aspect: TabsContext);
-  }
-}
+import 'package:flutter_custom_tab_bar/library.dart';
 
 class Tabs extends StatefulWidget {
   final int itemCount;
@@ -88,21 +67,19 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-    return TabsContext(
-        child: Column(
+    return Column(
       children: [
         CustomTabBar(
           initialIndex: widget.initialPage,
           height: widget.pinned ? null : widget.tabbarHeight,
-          physics: widget.pinned
-              ? NeverScrollableScrollPhysics()
-              : BouncingScrollPhysics(),
+          pinned: widget.pinned,
           width: widget.tabbarWidth,
           itemCount: widget.itemCount,
           onTapItem: onTapTabBarItem,
           builder: widget.tabBarItemBuilder,
           pageController: _pageController,
           indicator: widget.indicator,
+          controlJump: false,
         ),
         Expanded(
             child: PageView(
@@ -111,6 +88,6 @@ class _TabsState extends State<Tabs> {
           // childrenDelegate: _sliverChildBuilderDelegate,
         ))
       ],
-    ));
+    );
   }
 }

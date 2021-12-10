@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_tabs/library.dart';
+import 'package:flutter_custom_tab_bar/library.dart';
+import 'package:flutter_tabs/tabs.dart';
 
 import 'page_item.dart';
 
