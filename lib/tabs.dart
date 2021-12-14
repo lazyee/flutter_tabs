@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_tab_bar/library.dart';
 
 class Tabs extends StatefulWidget {
-  final int itemCount;
-
   final List<Widget> pages;
   final IndexedTabBarItemBuilder tabBarItemBuilder;
   final CustomIndicator? indicator;
@@ -13,7 +11,6 @@ class Tabs extends StatefulWidget {
   final bool pinned;
   Tabs({
     Key? key,
-    required this.itemCount,
     required this.pages,
     required this.tabBarItemBuilder,
     this.indicator,
@@ -74,7 +71,7 @@ class _TabsState extends State<Tabs> {
           height: widget.pinned ? null : widget.tabbarHeight,
           pinned: widget.pinned,
           width: widget.tabbarWidth,
-          itemCount: widget.itemCount,
+          itemCount: widget.pages.length,
           onTapItem: onTapTabBarItem,
           builder: widget.tabBarItemBuilder,
           pageController: _pageController,

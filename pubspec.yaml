@@ -1,6 +1,6 @@
 name: flutter_tabs
 description: custom tab bar.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/lazyee/flutter_tabs
 
 environment:
