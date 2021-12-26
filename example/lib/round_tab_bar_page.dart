@@ -46,7 +46,6 @@ class _RoundTabBarPageState extends State<RoundTabBarPage> {
               bottom: 10,
               top: 10,
               radius: BorderRadius.circular(25)),
-          itemCount: 20,
           pages: [
             PageItem(0),
             PageItem(1),

@@ -49,7 +49,6 @@ class _PinnedLinearTabBarPageState extends State<PinnedLinearTabBarPage> {
               height: 3,
               bottom: 5,
               radius: BorderRadius.circular(2)),
-          itemCount: 2,
           pages: [
             PageItem(0),
             PageItem(1),

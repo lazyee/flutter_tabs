@@ -48,7 +48,6 @@ class _StandardTabBarPageState extends State<StandardTabBarPage> {
               height: 3,
               bottom: 8,
               radius: BorderRadius.circular(2)),
-          itemCount: 20,
           pages: [
             PageItem(0),
             PageItem(1),

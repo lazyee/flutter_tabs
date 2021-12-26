@@ -36,7 +36,7 @@ class _TabsState extends State<Tabs> {
     if (currentPage == index) return;
     if ((currentPage - index).abs() == 1) {
       await _pageController.animateToPage(index,
-          duration: animDuration, curve: Curves.easeIn);
+          duration: kCustomerTabBarAnimDuration, curve: Curves.easeIn);
       return;
     }
 
@@ -52,7 +52,7 @@ class _TabsState extends State<Tabs> {
     });
 
     await _pageController.animateToPage(quickJumpIndex,
-        duration: animDuration, curve: Curves.easeIn);
+        duration: kCustomerTabBarAnimDuration, curve: Curves.easeIn);
     _pageController.jumpToPage(index);
 
     WidgetsBinding.instance?.addPostFrameCallback((Duration duration) {
