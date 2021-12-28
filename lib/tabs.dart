@@ -67,7 +67,6 @@ class _TabsState extends State<Tabs> {
     return Column(
       children: [
         CustomTabBar(
-          initialIndex: widget.initialPage,
           height: widget.pinned ? null : widget.tabbarHeight,
           pinned: widget.pinned,
           width: widget.tabbarWidth,
