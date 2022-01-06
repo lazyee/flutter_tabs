@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import 'linear_tab_bar_page.dart';
 import 'pinned_linear_tab_bar_page.dart';

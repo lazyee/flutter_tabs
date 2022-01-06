@@ -42,6 +42,7 @@ class _StandardTabBarPageState extends State<StandardTabBarPage> {
         appBar: AppBar(title: Text('Standard Indicator')),
         body: Tabs(
           tabBarItemBuilder: getTabbarChild,
+          initialPage: 10,
           indicator: StandardIndicator(
               color: Colors.blue,
               width: 20,
