@@ -1,4 +1,4 @@
-## [0.0.6] - 2021.12.28
+## [0.0.7] - 2022.01.06
 update flutter_custom_tab_bar package version
 ## [0.0.4] - 2021.12.10
 remove itemCount
