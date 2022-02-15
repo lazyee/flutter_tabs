@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tab_bar/library.dart';
 
+export 'package:flutter_custom_tab_bar/library.dart';
+
 class Tabs extends StatefulWidget {
   final List<Widget> pages;
   final IndexedTabBarItemBuilder tabBarItemBuilder;
@@ -8,12 +10,14 @@ class Tabs extends StatefulWidget {
   final int initialPage;
   final double tabbarHeight;
   final double? tabbarWidth;
+  final Axis direction;
   final bool pinned;
   Tabs({
     Key? key,
     required this.pages,
     required this.tabBarItemBuilder,
     this.indicator,
+    this.direction = Axis.horizontal,
     this.pinned = false,
     this.initialPage = 0,
     this.tabbarHeight = 50,
@@ -62,28 +66,37 @@ class _TabsState extends State<Tabs> {
     });
   }
 
+  List<Widget> _buildContent(BuildContext context) {
+    return [
+      CustomTabBar(
+        direction: widget.direction,
+        height: widget.pinned
+            ? null
+            : (widget.direction == Axis.vertical ? null : widget.tabbarHeight),
+        pinned: widget.pinned,
+        width: widget.tabbarWidth,
+        itemCount: widget.pages.length,
+        onTapItem: onTapTabBarItem,
+        builder: widget.tabBarItemBuilder,
+        pageController: _pageController,
+        indicator: widget.indicator,
+        controlJump: false,
+      ),
+      Expanded(
+          child: PageView(
+        scrollDirection: widget.direction,
+        controller: _pageController,
+        children: pageList,
+        // childrenDelegate: _sliverChildBuilderDelegate,
+      ))
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTabBar(
-          height: widget.pinned ? null : widget.tabbarHeight,
-          pinned: widget.pinned,
-          width: widget.tabbarWidth,
-          itemCount: widget.pages.length,
-          onTapItem: onTapTabBarItem,
-          builder: widget.tabBarItemBuilder,
-          pageController: _pageController,
-          indicator: widget.indicator,
-          controlJump: false,
-        ),
-        Expanded(
-            child: PageView(
-          controller: _pageController,
-          children: pageList,
-          // childrenDelegate: _sliverChildBuilderDelegate,
-        ))
-      ],
-    );
+    if (widget.direction == Axis.vertical) {
+      return Row(children: _buildContent(context));
+    }
+    return Column(children: _buildContent(context));
   }
 }

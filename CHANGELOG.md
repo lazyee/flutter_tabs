@@ -1,3 +1,5 @@
+## [0.0.8] - 2022.02.16
+update flutter_custom_tab_bar package version
 ## [0.0.7] - 2022.01.06
 update flutter_custom_tab_bar package version
 ## [0.0.4] - 2021.12.10
